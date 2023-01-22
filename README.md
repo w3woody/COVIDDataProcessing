@@ -92,6 +92,8 @@ So even their top-line scary number of 7.7% seems wrong!
 
 **This is hardly the top-line number where 7.7% of people sought medical assistance because of the vaccine.**
 
+(Oh, and for those critics saying "yeah, but the 'vaccine caused health issues' is self-reported and may not actually reflect the harm vaccines are causing'--**that's the entire point about this being less than 'gold standard' data above!** Because this is all self-reported interactions, we cannot know the quality of the self-reporting taking place.)
+
 
 ----
 
