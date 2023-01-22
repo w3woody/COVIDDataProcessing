@@ -54,6 +54,7 @@ That severity, by the way, is tracked in
 - CHILLS
 - DIARRHEA
 - FATIGUE
+
 - FEELING\_TODAY
 - FEVER
 - HAD\_SYMPTOMS
@@ -64,6 +65,7 @@ That severity, by the way, is tracked in
 - VACCINE\_CAUSED\_HEALTH\_ISSUES
 - HEALTHCARE\_VISITS
 - ITCHING
+
 - JOINT\_PAINS
 - MUSCLE\_OR\_BODY\_ACHES
 - NAUSEA
@@ -74,6 +76,7 @@ That severity, by the way, is tracked in
 - REDNESS
 - SITE\_REACTION
 - SWELLING
+
 - SYSTEMIC\_REACTION
 - TEMPERATURE\_CELSIUS
 - TEMPERATURE\_FAHRENHEIT
@@ -118,9 +121,9 @@ This appears to be the number of days since the last time this registrant made a
 
 #### Health reactions
 
-The fields ABDOMINAL_PAIN, CHILLS, DIARRHEA, FATIGUE, HEADACHE, ITCHING, JOINT_PAINS, MUSCLE_OR_BODY_ACHES, NAUSEA, PAIN, RASH_OUTSIDE_INJECTION_SITE, REDNESS, SWELLING and VOMITING contain the possible values "", "Mild", "Moderate" or "Severe".
+The fields ABDOMINAL_PAIN, CHILLS, DIARRHEA, FATIGUE, HEADACHE, ITCHING, JOINT\_PAINS, MUSCLE\_OR\_BODY\_ACHES, NAUSEA, PAIN, RASH\_OUTSIDE\_INJECTION\_SITE, REDNESS, SWELLING and VOMITING contain the possible values "", "Mild", "Moderate" or "Severe".
 
-The fields FEVER, HAD_SYMPTOMS, VACCINE_CAUSED_HEALTH_ISSUES and TESTED_POSITIVE have the values "Yes", "No" or "", which I presume means "No".
+The fields FEVER, HAD\_SYMPTOMS, VACCINE\_CAUSED\_HEALTH\_ISSUES and TESTED_POSITIVE have the values "Yes", "No" or "", which I presume means "No".
 
 The fields PREGNANT and PREGNANCY_TEST flag pregnancy; the former is "", "No", "I don't know" or "Yes"; the later, "", "No" or "Yes".
 
@@ -128,7 +131,7 @@ For TESTED_POSITIVE there is also an accompanying field TESTED_POSITIVE_DATE whi
 
 #### Health status
 
-The field HEALTH_NOW is one of "", "Excellent", "Good", "Fair" or "Poor", with the fields HEALTH_NOW_COMPARISON one of "", "Worse", "About the same" or "Better".
+The field HEALTH\_NOW is one of "", "Excellent", "Good", "Fair" or "Poor", with the fields HEALTH\_NOW\_COMPARISON one of "", "Worse", "About the same" or "Better".
 
 #### Flag fields
 
@@ -161,6 +164,17 @@ The field HEALTHCARE_VISITS contains a "" blank field or one or more colon-separ
 - Outpatient clinic or urgent care clinic visit
 - Telehealth, virtual health, or email health consultation
 
+The field FEELING_TODAY includes the following values:
+- Poor
+- Fair
+- Good
+
+The field HEALTH_IMPACT includes the following values:
+- Be unable to do their normal daily activities
+- Be unable to work
+- Be unable to do your normal daily activities
+- Get care from a doctor or other healthcare professional
+- Be unable to work or attend school
 
 #### Temperature
 

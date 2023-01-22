@@ -1,5 +1,6 @@
 import com.chaosinmotion.coviddata.csv.CSVParser;
 import com.chaosinmotion.coviddata.reports.Report1;
+import com.chaosinmotion.coviddata.reports.Report2;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -81,10 +82,13 @@ public class Main
 			}
 
 			for (int i = 6; i < firstRow.length; ++i) {
+				if (i == 10) continue;
+				if (i == 14) continue;
+
 				String contents = (i < row.length) ? row[i] : "";
 
 				if (found[i-6] != null) {
-					found[i - 6].add(contents);
+					found[i-6].add(contents);
 
 					int size = found[i - 6].size();
 					if (size > 1000) {
@@ -92,6 +96,19 @@ public class Main
 						found[i - 6] = null;
 					}
 				}
+			}
+
+			// Special: Pull apart row 10, 14
+			String r = row[14];
+			String[] rparts = r.split(":");
+			if (found[14-6] != null) {
+				for (String rpart: rparts) found[14-6].add(rpart);
+			}
+
+			r = row[10];
+			rparts = r.split(":");
+			if (found[10-6] != null) {
+				for (String rpart: rparts) found[10-6].add(rpart);
 			}
 		}
 
@@ -118,8 +135,9 @@ public class Main
 //			dumpAllTOC();
 //			scrapeHealthData();
 			Report1.run();
+			Report2.run();
 		}
-		catch (IOException ex) {
+		catch (Throwable ex) {
 			ex.printStackTrace();
 		}
 	}

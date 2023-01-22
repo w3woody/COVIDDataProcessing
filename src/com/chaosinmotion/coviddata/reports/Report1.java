@@ -1,5 +1,6 @@
 package com.chaosinmotion.coviddata.reports;
 
+import com.chaosinmotion.coviddata.utils.Utils;
 import com.chaosinmotion.coviddata.csv.CSVParser;
 import com.chaosinmotion.coviddata.csv.CSVWriter;
 
@@ -39,21 +40,11 @@ public class Report1
 		int outpatient;
 		// Telehealth, virtual health, or email health consultation
 		int telehealth;
-	}
 
-	/**
-	 * Look up the field from the list of fields. Throws an exception if the
-	 * field was not found.
-	 * @param fields The first row of the data with the TOC
-	 * @param field The name of the column we're interested in
-	 * @return The index of the column with the data we want
-	 */
-	private static int lookup(String[] fields, String field)
-	{
-		for (int i = 0; i < fields.length; ++i) {
-			if (fields[i].equalsIgnoreCase(field)) return i;
+		boolean hasVisit()
+		{
+			return (er != 0) || (hospital != 0) || (outpatient != 0) || (telehealth != 0);
 		}
-		throw new RuntimeException("Programmer is an idiot; field " + field + " not found");
 	}
 
 	/**
@@ -70,13 +61,15 @@ public class Report1
 		 */
 		File f = new File("cache/hinteraction.csv");
 		if (f.exists()) {
+			System.out.println("Reading cache");
+
 			/*
 			 *	Open our cache.
 			 */
 
 			FileReader fr = new FileReader(f);
 			CSVParser parser = new CSVParser(fr);
-			String[] firstRow = parser.readRow();
+			parser.readRow();			// skip toc
 
 			for (;;) {
 				String[] row = parser.readRow();
@@ -92,6 +85,8 @@ public class Report1
 			}
 
 			fr.close();
+
+			System.out.println("Finished reading cache");
 		} else {
 			/*
 			 *	Open our big massive file, and track the TOC indexes for the
@@ -101,8 +96,8 @@ public class Report1
 			CSVParser parser = new CSVParser(fr);
 			String[] firstRow = parser.readRow();
 
-			int hvisit = lookup(firstRow,"HEALTHCARE_VISITS");
-			int rindex = lookup(firstRow,"REGISTRANT_CODE");
+			int hvisit = Utils.lookup(firstRow,"HEALTHCARE_VISITS");
+			int rindex = Utils.lookup(firstRow,"REGISTRANT_CODE");
 
 			/*
 			 *	Now run the rest. This all takes time, you know.
