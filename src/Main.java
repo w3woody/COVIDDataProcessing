@@ -134,8 +134,8 @@ public class Main
 			 */
 //			dumpAllTOC();
 //			scrapeHealthData();
-			Report1.run();
-			Report2.run();
+			int totalCount = Report1.run();
+			Report2.run(totalCount);
 		}
 		catch (Throwable ex) {
 			ex.printStackTrace();

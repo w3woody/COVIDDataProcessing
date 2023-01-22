@@ -54,4 +54,14 @@ public class Utils
 
 		return retValue;
 	}
+
+	public static String perc(int n, int total)
+	{
+		double p = (double)n;
+		p = p * 100 / total;
+
+		return String.format("  %.3f%%",p);
+	}
+
+
 }

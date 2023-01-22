@@ -321,7 +321,7 @@ public class Report2
 		}
 	}
 
-	public static void run() throws IOException, ParseException, ClassNotFoundException
+	public static void run(int totalCount) throws IOException, ParseException, ClassNotFoundException
 	{
 		HashMap<String, Report1.Visit> visitCount = new HashMap<>();
 
@@ -617,11 +617,11 @@ public class Report2
 		}
 
 		System.out.println("Health care interactions by people after vaccine flag set:");
-		System.out.println("Any:               " + total);
-		System.out.println("ER Visits:         " + er);
-		System.out.println("Hospital Visits:   " + hosp);
-		System.out.println("Outpatient Visits: " + out);
-		System.out.println("Telehealth Visits: " + thealth);
+		System.out.println("Any:               " + total + " " + Utils.perc(total,totalCount));
+		System.out.println("ER Visits:         " + er + " " + Utils.perc(er,totalCount));
+		System.out.println("Hospital Visits:   " + hosp + " " + Utils.perc(hosp,totalCount));
+		System.out.println("Outpatient Visits: " + out + " " + Utils.perc(out,totalCount));
+		System.out.println("Telehealth Visits: " + thealth + " " + Utils.perc(thealth,totalCount));
 
 	}
 }

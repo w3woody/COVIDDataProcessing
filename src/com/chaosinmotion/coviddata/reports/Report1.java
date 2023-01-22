@@ -48,10 +48,11 @@ public class Report1
 	}
 
 	/**
-	 * Run our report. Print our results.
+	 * Run our report. Print our results. Note we return the total number of
+	 * registrants so we can quickly calculate percentages.
 	 * @throws IOException
 	 */
-	public static void run() throws IOException
+	public static int run() throws IOException
 	{
 		HashMap<String,Visit> visitCount = new HashMap<>();
 
@@ -225,10 +226,12 @@ public class Report1
 
 		System.out.println();
 		System.out.println("Total registrants: " + totalCount);
-		System.out.println("Any:               " + anyReaction);
-		System.out.println("ER Visits:         " + totalER);
-		System.out.println("Hospital Visits:   " + totalHospital);
-		System.out.println("Outpatient Visits: " + totalOutpatient);
-		System.out.println("Telehealth Visits: " + totalTelehealth);
+		System.out.println("Any:               " + anyReaction + " " + Utils.perc(anyReaction,totalCount));
+		System.out.println("ER Visits:         " + totalER + " " + Utils.perc(totalER,totalCount));
+		System.out.println("Hospital Visits:   " + totalHospital + " " + Utils.perc(totalHospital,totalCount));
+		System.out.println("Outpatient Visits: " + totalOutpatient + " " + Utils.perc(totalOutpatient,totalCount));
+		System.out.println("Telehealth Visits: " + totalTelehealth + " " + Utils.perc(totalTelehealth,totalCount));
+
+		return totalCount;
 	}
 }
