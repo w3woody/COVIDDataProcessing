@@ -77,6 +77,8 @@ So even their top-line scary number of 7.7% seems wrong!
 
 (This is the count of the number of unique participants who report any contact with health care--that is, where `HEALTHCARE_VISITS` reports a value that is not a blank, "None" or "N/A". I suspect their web site is not differentiating by type of visit--which is why they may be counting "None" as a health care visit.)
 
+(Quick note: the "Any" total is less than the sum of the different types of visits, because some individuals reported more than one mode of visit--such as getting a telehealth visit, then later visiting an ER.)
+
 (2) More interestingly, if we count only those who report a health care visit after asserting the vaccine caused them health related symptoms--that is, at some point in their history they said "yes, the vaccine is causing me problems", then later--at any time--sought medical attention, those numbers drop drastically:
 
     Health care interactions by people after vaccine flag set:
